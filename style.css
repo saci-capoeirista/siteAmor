@@ -1,9 +1,8 @@
 body {
-    background-color: #ff758c;
     font-family: Arial, sans-serif;
     text-align: center;
-    background: linear-gradient(to right, #ff758c, #ff7eb3);
-    color: rgb(255, 0, 0);
+    background: linear-gradient(to right, #d40b0b, #eb0062, #ff1a75);
+    color: rgb(2, 1, 1);
     margin: 0;
     padding: 0;
 }
@@ -17,25 +16,44 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-h1 {
+h1, h2 {
     font-size: 2em;
+    font-weight: bold;
 }
 
-p {
-    font-size: 1.2em;
+.glow {
+    text-shadow: 0 0 10px #fff, 0 0 20px #ff4da6, 0 0 30px #ff4da6;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { text-shadow: 0 0 10px #fff, 0 0 20px #ff4da6, 0 0 30px #ff4da6; }
+    50% { text-shadow: 0 0 15px #fff, 0 0 25px #ff1a75, 0 0 35px #ff1a75; }
+    100% { text-shadow: 0 0 10px #fff, 0 0 20px #ff4da6, 0 0 30px #ff4da6; }
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn ease-in 2s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .galeria {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    gap: 20px;
+    margin: 20px 0;
 }
 
 .galeria img {
-    width: 100px;
-    height: 100px;
-    border-radius: 10px;
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
     transition: transform 0.3s;
 }
 
@@ -43,17 +61,37 @@ p {
     transform: scale(1.2);
 }
 
-button {
+.botao-musica {
     background-color: rgb(252, 0, 0);
     color: #ff758c;
     border: none;
-    padding: 10px 20px;
+    padding: 15px 25px;
     font-size: 1.2em;
     cursor: pointer;
     border-radius: 5px;
-    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
-button:hover {
+.botao-musica:hover {
     background-color: #ffe0e6;
+    transform: scale(1.1);
+}
+
+.heart {
+    position: fixed;
+    bottom: -10px;
+    font-size: 24px;
+    color: red;
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
 }
